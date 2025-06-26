@@ -30,6 +30,7 @@ WORKDIR /app
 
 # Copy the built Go application from the builder stage to the final image
 COPY --from=builder /parcel .
+COPY --from=builder /app/tracker.db .
 
 # Ensure the application binary has the correct permissions
 RUN chmod 754 ./parcel
