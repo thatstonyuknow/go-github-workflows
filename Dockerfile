@@ -7,12 +7,12 @@ FROM golang:1.24 AS builder
 # Set the working directory inside the container
 WORKDIR /app    
 
-RUN go mod tidy
 
 # Copy the Go module files to the working directory
 COPY go.mod go.sum ./
 
 # Download the Go module dependencies
+RUN go mod tidy
 RUN go mod download
 
 # Copy the Go source files to the working directory
