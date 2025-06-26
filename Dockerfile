@@ -16,9 +16,8 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 # Copy the Go source files to the working directory
-COPY *.go ./
+COPY . .
 
-COPY tracker.db .
 # Run the Go build command to compile the application
 RUN  CGO_ENABLED=0 go build  --trimpath -o /parcel
 
